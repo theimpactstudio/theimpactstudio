@@ -1,13 +1,15 @@
 # The Impact Studio
 
-Personal website and portfolio for **Poornima B.S.** — social development strategist specializing in grant & proposal writing, MEL systems, organisational development, and CSR partnership advisory. 25 years of experience, grassroots to national level.
-
+Personal website and portfolio for **Poornima B.S.** — Social development strategist and advisor with 25+ years of field-to-system experience across public health, education, disability. Expertise in community-centred design and participatory approaches, translating lived experiences and community insights into inclusive, context-responsive programmes and solutions. Delivering at the intersection of strategy, programme design, organisational capacity, community engagement, and resource mobilisation—helping social-sector organisations translate field realities into stronger programmes, compelling proposals, capable teams, and sustainable partnerships. Experience spanning grassroots implementation to state and national-level systems, enabling to bridge community perspectives with institutional priorities and turn strategy into practical action.
 🔗 **Live site:** https://theimpactstudio.github.io
 
 ## Services
+- Program Concept & Implementation Design
 - Grant & Proposal Writing
 - MEL Systems Setup
-- OD & Capacity-Building Design
+- Organization Development
+- Leadership Trainings
+- Capacity-Building Design
 - CSR & Partner Advisory
 
 ## Contact
