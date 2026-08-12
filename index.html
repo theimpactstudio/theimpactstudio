@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poornima B.S. — Social Development Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDE7D8;
+    --paper-alt:#E3DAC5;
+    --ink:#2A2622;
+    --navy:#2B3A55;
+    --brick:#A63D2F;
+    --sage:#6E7C5E;
+    --line: rgba(42,38,34,0.28);
+    --line-soft: rgba(42,38,34,0.14);
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+  }
+  ::selection{ background:var(--brick); color:var(--paper); }
+  a{ color:var(--navy); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--brick); outline-offset:3px; }
+
+  /* subtle paper grain */
+  body::before{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(42,38,34,0.012) 3px, rgba(42,38,34,0.012) 4px);
+    mix-blend-mode:multiply;
+  }
+
+  .eyebrow{
+    font-family:'Courier Prime', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brick);
+  }
+  h1,h2,h3{ font-family:'Source Serif 4', serif; margin:0; color:var(--ink); }
+
+  /* ===== Side file-tab index ===== */
+  .tabindex{
+    position:fixed; top:0; right:0; height:100vh; width:44px;
+    display:flex; flex-direction:column; z-index:50;
+    border-left:1px solid var(--line);
+  }
+  .tabindex a{
+    flex:1; display:flex; align-items:center; justify-content:center;
+    writing-mode:vertical-rl; text-orientation:mixed;
+    font-family:'Courier Prime', monospace; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; text-decoration:none; color:var(--ink);
+    background:var(--paper-alt);
+    border-bottom:1px solid var(--line-soft);
+    transition:background .15s ease, color .15s ease, padding-right .15s ease;
+  }
+  .tabindex a:hover, .tabindex a:focus-visible{
+    background:var(--brick); color:var(--paper); padding-right:6px;
+  }
+  @media (max-width:760px){
+    .tabindex{
+      position:sticky; top:0; height:auto; width:100%; flex-direction:row;
+      border-left:none; border-bottom:1px solid var(--line); overflow-x:auto;
+    }
+    .tabindex a{ writing-mode:horizontal-tb; padding:10px 14px; border-bottom:none; border-right:1px solid var(--line-soft); flex:none; }
+  }
+
+  .wrap{ max-width:860px; margin:0 auto; padding:0 28px; position:relative; z-index:1; }
+  @media (min-width:761px){ .wrap{ margin-right:44px; } }
+
+  /* ===== Hero ===== */
+  .hero{ padding:88px 0 56px; border-bottom:1px solid var(--line); position:relative; }
+  .hero .eyebrow{ margin-bottom:18px; display:block; }
+  .hero h1{ font-size:clamp(38px,6vw,58px); font-weight:600; line-height:1.05; letter-spacing:-0.01em; }
+  .hero .role{
+    margin-top:14px; font-family:'IBM Plex Sans'; font-size:18px; color:var(--navy); font-weight:500;
+    max-width:520px;
+  }
+  .stamp{
+    position:absolute; top:70px; right:0; width:126px; height:126px;
+    border:2.5px dashed var(--brick); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    transform:rotate(-9deg); color:var(--brick);
+    font-family:'Courier Prime', monospace; font-weight:700; font-size:11.5px;
+    letter-spacing:.05em; line-height:1.5; text-transform:uppercase;
+    padding:10px;
+  }
+  @media (max-width:640px){ .stamp{ position:static; margin:26px 0 0; transform:rotate(-6deg); } }
+
+  .cta-row{ margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    font-family:'Courier Prime', monospace; text-transform:uppercase; letter-spacing:.06em; font-size:13px;
+    padding:12px 20px; text-decoration:none; display:inline-block; border:1.5px solid var(--ink);
+    transition:background .15s ease,color .15s ease;
+  }
+  .btn.primary{ background:var(--navy); color:var(--paper); border-color:var(--navy); }
+  .btn.primary:hover{ background:var(--ink); }
+  .btn.secondary{ color:var(--ink); }
+  .btn.secondary:hover{ background:var(--ink); color:var(--paper); }
+
+  /* ===== File sections ===== */
+  section.file{ padding:60px 0; border-bottom:1px solid var(--line); }
+  .filehead{ display:flex; align-items:baseline; gap:14px; margin-bottom:30px; flex-wrap:wrap; }
+  .filenum{
+    font-family:'Courier Prime', monospace; font-size:12.5px; color:var(--sage);
+    border:1px solid var(--sage); padding:3px 8px; letter-spacing:.05em;
+  }
+  section.file h2{ font-size:28px; font-weight:600; }
+  .lede{ max-width:600px; color:#4a453d; font-size:15.5px; }
+
+  /* Profile */
+  .profile p{ max-width:640px; font-size:15.5px; color:#3a352e; }
+  .creds{ margin-top:22px; display:grid; gap:8px; font-size:14px; }
+  .creds div{ display:flex; gap:10px; }
+  .creds .k{ font-family:'Courier Prime', monospace; font-size:12px; color:var(--sage); min-width:150px; }
+
+  /* Services */
+  .services{ display:grid; gap:22px; grid-template-columns:1fr 1fr; }
+  @media (max-width:640px){ .services{ grid-template-columns:1fr; } }
+  .svc{ border:1px solid var(--line); background:var(--paper-alt); padding:20px 20px 22px; position:relative; }
+  .svc::before{
+    content:""; position:absolute; top:-1px; left:16px; width:34px; height:8px; background:var(--paper);
+    border-left:1px solid var(--line); border-right:1px solid var(--line);
+  }
+  .svc h3{ font-size:17px; font-weight:600; margin-bottom:8px; }
+  .svc p{ font-size:14px; color:#4a453d; margin:0; }
+
+  /* Track record */
+  .stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:34px; }
+  @media (max-width:640px){ .stats{ grid-template-columns:1fr 1fr; } }
+  .stat .num{ font-family:'Source Serif 4', serif; font-size:34px; font-weight:600; color:var(--navy); }
+  .stat .lbl{ font-family:'Courier Prime', monospace; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--sage); margin-top:2px; }
+  .timeline{ border-left:1px solid var(--line); padding-left:22px; display:grid; gap:20px; }
+  .tl-item .org{ font-weight:600; font-size:15px; }
+  .tl-item .yr{ font-family:'Courier Prime', monospace; font-size:12px; color:var(--sage); }
+  .tl-item p{ margin:6px 0 0; font-size:14px; color:#4a453d; max-width:560px; }
+
+  /* Publications */
+  .pubs{ display:grid; gap:16px; }
+  .pub{ padding:14px 0; border-bottom:1px solid var(--line-soft); display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+  .pub .t{ font-weight:600; font-size:14.5px; max-width:480px; }
+  .pub .s{ font-size:12.5px; color:var(--sage); font-family:'Courier Prime', monospace; margin-top:3px; }
+  .pub a{ font-size:12.5px; white-space:nowrap; }
+
+  .awards{ display:flex; gap:28px; flex-wrap:wrap; margin-top:6px; }
+  .award{ font-size:14px; }
+  .award .yr{ font-family:'Courier Prime', monospace; color:var(--brick); font-size:12px; }
+
+  /* Contact */
+  .contact{ padding:60px 0 100px; }
+  .contact h2{ font-size:30px; margin-bottom:14px; }
+  .contact p{ max-width:520px; color:#4a453d; font-size:15px; margin-bottom:26px; }
+  .contact-links{ display:flex; gap:16px; flex-wrap:wrap; }
+
+  footer{ text-align:center; padding:26px 0 40px; font-family:'Courier Prime', monospace; font-size:11.5px; color:var(--sage); position:relative; z-index:1; }
+</style>
+</head>
+<body>
+
+<nav class="tabindex" aria-label="Section index">
+  <a href="#profile">Profile</a>
+  <a href="#services">Services</a>
+  <a href="#record">Record</a>
+  <a href="#publications">Publications</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero" id="top">
+    <span class="eyebrow">Case File · Open</span>
+    <h1>Poornima B.S.</h1>
+    <p class="role">Social development strategist — grant &amp; proposal writing, MEL systems, organisational development, and CSR partnership advisory. 25 years, grassroots to national.</p>
+    <div class="stamp">25+ Years<br>Field<br>Verified</div>
+    <div class="cta-row">
+      <a class="btn primary" href="#contact">Open a file</a>
+      <a class="btn secondary" href="#services">See services</a>
+    </div>
+  </header>
+
+  <section class="file profile" id="profile">
+    <div class="filehead"><span class="filenum">File 01</span><h2>Profile</h2></div>
+    <p>A dedicated social development professional with over 25 years of experience working at grassroots, state, and national levels in program management, capacity building, grantwriting, and community mobilization. Expertise spans urban health, HIV/AIDS interventions, child welfare, and disability inclusion — with a strong background in designing health interventions, training modules, and strategic advocacy initiatives. Skilled in engaging government agencies, NGOs, and community-based organisations to drive sustainable impact.</p>
+    <div class="creds">
+      <div><span class="k">EDUCATION</span><span>MA Sociology (KSOU) · PGD Environment &amp; Sustainable Development (IGNOU) · Certificate in CSR Implementation (2025)</span></div>
+      <div><span class="k">LANGUAGES</span><span>Kannada (native), English, Hindi</span></div>
+      <div><span class="k">BASED IN</span><span>Bangalore, India — working remotely</span></div>
+    </div>
+  </section>
+
+  <section class="file" id="services">
+    <div class="filehead"><span class="filenum">File 02</span><h2>Services</h2></div>
+    <p class="lede">Fixed-scope engagements, sized for NGOs, funders, and CSR teams who need senior program expertise without a full-time hire.</p>
+    <div class="services">
+      <div class="svc">
+        <h3>Grant &amp; Proposal Writing</h3>
+        <p>Concept notes, EoIs, and full proposals for government, multilateral, and private donors — from idea to submission-ready document.</p>
+      </div>
+      <div class="svc">
+        <h3>MEL Systems Setup</h3>
+        <p>Indicator frameworks, reporting templates, and review structures that let a program prove its impact, not just describe it.</p>
+      </div>
+      <div class="svc">
+        <h3>OD &amp; Capacity-Building Design</h3>
+        <p>Training modules, Individual Action Plans, and facilitated ToT sessions that build a partner organisation's own delivery capability.</p>
+      </div>
+      <div class="svc">
+        <h3>CSR &amp; Partner Advisory</h3>
+        <p>NGO due diligence, partner selection frameworks, and CSR program design for corporates building credible giving portfolios.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="file" id="record">
+    <div class="filehead"><span class="filenum">File 03</span><h2>Track record</h2></div>
+    <div class="stats">
+      <div class="stat"><div class="num">320+</div><div class="lbl">Link workers led (GFATM VII)</div></div>
+      <div class="stat"><div class="num">350</div><div class="lbl">Children's programs managed</div></div>
+      <div class="stat"><div class="num">250+</div><div class="lbl">Frontline workers trained</div></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="org">IndiVillage Foundation</span> <span class="yr">— Project Director, 2025–26</span>
+        <p>Led strategic planning and MEL systems for the foundation's development programs, translating strategy into measurable deliverables.</p>
+      </div>
+      <div class="tl-item">
+        <span class="org">Karnataka Health Promotion Trust</span> <span class="yr">— Deputy Director, 2018–2025</span>
+        <p>Led Urban Comprehensive Primary Health Care operations; designed community strategies for vulnerable populations and liaised with government bodies on advocacy and scale-up.</p>
+      </div>
+      <div class="tl-item">
+        <span class="org">Rainbow Foundation India</span> <span class="yr">— State Program Manager, 2014–17</span>
+        <p>Managed child welfare programs across 15+ partner NGOs and 4 children's homes; trained community volunteers and NGO staff on Child Protection Policy.</p>
+      </div>
+      <div class="tl-item">
+        <span class="org">Karnataka Health Promotion Trust</span> <span class="yr">— Senior Program Officer, 2009–11</span>
+        <p>Led the Link Worker Scheme under GFATM Round VII, overseeing district personnel and link workers; developed lead-agency proposals for SACS and NACO.</p>
+      </div>
+    </div>
+    <div class="awards" style="margin-top:34px;">
+      <div class="award"><span class="yr">2016</span> — REX Karmaveer Chakra Award, social justice &amp; community leadership</div>
+      <div class="award"><span class="yr">2021</span> — Global Women Inspiration Award, top 100 changemakers</div>
+    </div>
+  </section>
+
+  <section class="file" id="publications">
+    <div class="filehead"><span class="filenum">File 04</span><h2>Publications</h2></div>
+    <div class="pubs">
+      <div class="pub">
+        <div><div class="t">Community Structures Module</div><div class="s">Karnataka Health Promotion Trust</div></div>
+        <a href="https://www.khpt.org/wp-content/uploads/2021/07/Community-Structures-Module.pdf" target="_blank" rel="noopener">View →</a>
+      </div>
+      <div class="pub">
+        <div><div class="t">Self Help Groups in Community Action on Health — Participant Manual</div><div class="s">NHSRC, Ministry of Health &amp; Family Welfare</div></div>
+        <a href="https://nhsrcindia.org/sites/default/files/2023-04/Self%20Help%20Groups%20in%20Community%20Action%20on%20Health%20Participant%20Manual%202023.pdf" target="_blank" rel="noopener">View →</a>
+      </div>
+      <div class="pub">
+        <div><div class="t">The Together Toolkit</div><div class="s">Karnataka Health Promotion Trust</div></div>
+        <a href="https://www.khpt.org/wp-content/uploads/2025/12/The-Together-Toolkit.pdf" target="_blank" rel="noopener">View →</a>
+      </div>
+      <div class="pub">
+        <div><div class="t">Community health workers augment the cascade of TB detection to care in urban slums of two metro cities in India</div><div class="s">Journal of Global Health, 2021 — co-author</div></div>
+        <a href="http://www.jogh.org/documents/2021/jogh-11-04042.htm" target="_blank" rel="noopener">View →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <span class="eyebrow">File 05 · Open a case</span>
+    <h2>Have a program that needs this?</h2>
+    <p>Best for a first paid pilot: one proposal, one MEL setup, or one training module. Happy to scope it over a short call.</p>
+    <div class="contact-links">
+      <a class="btn primary" href="mailto:poowonder@gmail.com">poowonder@gmail.com</a>
+      <a class="btn secondary" href="https://www.linkedin.com/in/poornima-b-s-82617118/" target="_blank" rel="noopener">LinkedIn profile</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>Case file maintained by Poornima B.S. — updated 2026</footer>
+
+</body>
+</html>
